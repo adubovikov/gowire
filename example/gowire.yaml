@@ -1,0 +1,25 @@
+# nfpm example config file
+name: "gowire"
+arch: "amd64"
+platform: "linux"
+version: "v${VERSION}"
+section: "default"
+priority: "extra"
+replaces:
+- gowire
+provides:
+- gowire
+maintainer: "QXIP Sipcapture <support@sipcapture.org>"
+description: |
+    Go Wire is a simple tool to help you manage your Wireshark integration with Go.
+vendor: "QXIP"
+homepage: "http://qxip.net"
+license: "AGPLv3"
+contents:
+  # Basic file that applies to all packagers
+  - src: /tmp/pkg/gowire
+    dst: /usr/local/bin/gowire
+     # Simple config file
+  - src: /tmp/pkg/example/gowire.service
+    dst: /lib/systemd/system/gowire.service
+    type: config
